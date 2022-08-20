@@ -130,8 +130,21 @@ Cluster configration of 3x servers is ready for comupation:
 ![pyspark5](https://github.com/WojtekSza/Spark_distributed_computation_analysis/blob/main/spark_distributed/spark5.jpg)
 Let`s run the same PI estimation and see how computation time have changed:
 ```
+def inside(p):
+    x, y = random.random(), random.random()
+    return x*x + y*y < 1
+```
+```
 import random
 NUM_SAMPLES=100000000
 count = sc.parallelize(range(0, NUM_SAMPLES)).filter(inside).count()
 print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
+```
+![pyspark5](https://github.com/WojtekSza/Spark_distributed_computation_analysis/blob/main/spark_distributed/spark6.jpg)
+# Final conclusion
+## Spark distributed computing reduced computation time from 51s to 20s while launched on 3x servers!!!
+
+Last step to remove all created Azure resources:
+```
+az group delete --name Spark
 ```
