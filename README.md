@@ -126,3 +126,12 @@ start-worker.sh -h 10.0.2.4 -p 7079 spark://10.0.1.4:7077
 ```
 start-worker.sh -h 10.0.3.4 -p 7080 spark://10.0.1.4:7077
 ```
+Cluster configration of 3x servers is ready for comupation:
+![pyspark5](https://github.com/WojtekSza/Spark_distributed_computation_analysis/blob/main/spark_distributed/spark5.jpg)
+Let`s run the same PI estimation and see how computation time have changed:
+```
+import random
+NUM_SAMPLES=100000000
+count = sc.parallelize(range(0, NUM_SAMPLES)).filter(inside).count()
+print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
+```
