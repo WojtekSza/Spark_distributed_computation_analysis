@@ -91,3 +91,9 @@ ssh -L 8080:localhost:8080 adminuser@20.111.54.253
 ```
 http://localhost:8080/
 ```
+![pyspark2](https://github.com/WojtekSza/Spark_distributed_computation_analysis/blob/main/spark_distributed/spark2.jpg)
+
+We will launch worker node as well on the Server 1 and conect it to the master node:
+```
+start-worker.sh -h 10.0.1.4 -p 7078 spark://10.0.1.4:7077
+```
