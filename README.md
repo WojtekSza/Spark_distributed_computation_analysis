@@ -116,3 +116,13 @@ NUM_SAMPLES=100000000
 count = sc.parallelize(range(0, NUM_SAMPLES)).filter(inside).count()
 print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
 ```
+### Results:
+It took 51s to comlete PI estimation for 100000000 and runing on 1x server.
+![pyspark3](https://github.com/WojtekSza/Spark_distributed_computation_analysis/blob/main/spark_distributed/spark4.jpg)
+Now let`s add additional workers Server 2&3 and check if computation time will decrease:
+```
+start-worker.sh -h 10.0.2.4 -p 7079 spark://10.0.1.4:7077
+```
+```
+start-worker.sh -h 10.0.3.4 -p 7080 spark://10.0.1.4:7077
+```
