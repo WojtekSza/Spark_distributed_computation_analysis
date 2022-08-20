@@ -37,7 +37,7 @@ Server3: <br>
 az vm create --name SRV3 --resource-group Spark --admin-password $adminpassword --admin-username adminuser --image UbuntuLTS --location francecentral --subnet SRV3 --subnet-address-prefix 10.0.3.0/24 --vnet-name Sparkvnet
 ```
 
-### After sucessfull creation of 3x servers: download Spark latest version:
+### After sucessfull creation of 3x servers: download Spark latest version for each server and run all configuration steps:
 ```
 https://dlcdn.apache.org/spark/spark-3.3.0/spark-3.3.0-bin-hadoop3.tgz
 ```
@@ -74,3 +74,20 @@ sudo apt install default-jdk scala git -y
 ```
 
 ## If all configuration went sucessfull then type pyspark to test Spark:
+![pyspark](https://github.com/WojtekSza/Spark_distributed_computation_analysis/blob/main/spark_distributed/spark.jpg)
+
+## Spark distributed servers configurations:
+Let`s set SRV1 as a master node:
+```
+start-master.sh -h 10.0.1.4 -p 7077
+```
+On the additional Ubuntu Desktop we can launch web UI to see Spark configuration:
+```
+sudo apt-get install openssh-client
+```
+```
+ssh -L 8080:localhost:8080 adminuser@20.111.54.253
+```
+```
+http://localhost:8080/
+```
