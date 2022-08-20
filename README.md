@@ -8,7 +8,7 @@ az login
 After sucesfull authentication next step is to create Azure resource group
 
 ```
-az group create -l francecentral -n spark
+az group create -l francecentral -n Spark
 ```
 
 Next step is to create Virtual Network for 3x servers with dedicated subnets IPs.
