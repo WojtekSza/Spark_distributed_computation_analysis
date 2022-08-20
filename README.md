@@ -88,6 +88,7 @@ sudo apt-get install openssh-client
 ```
 ssh -L 8080:localhost:8080 adminuser@20.111.54.253
 ```
+Note: 20.111.54.253 it`s public IP. If Ubuntu Destop is connected to virtual network then 10.0.1.4
 ```
 http://localhost:8080/
 ```
