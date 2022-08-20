@@ -97,3 +97,22 @@ We will launch worker node as well on the Server 1 and conect it to the master n
 ```
 start-worker.sh -h 10.0.1.4 -p 7078 spark://10.0.1.4:7077
 ```
+![pyspark3](https://github.com/WojtekSza/Spark_distributed_computation_analysis/blob/main/spark_distributed/spark3.jpg)
+
+### Testing - PI estimation 
+Before additing remainig Servers 2 & 3 lets check computation time on the single server 1 <br>
+Lets run example program in pyspark which will be connected to master node:
+```
+pyspark --master spark://10.0.1.4:7077
+```
+```
+def inside(p):
+    x, y = random.random(), random.random()
+    return x*x + y*y < 1
+```
+```
+import random
+NUM_SAMPLES=10000000
+count = sc.parallelize(range(0, NUM_SAMPLES)).filter(inside).count()
+print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
+```
