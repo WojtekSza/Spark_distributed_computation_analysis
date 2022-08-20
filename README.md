@@ -112,7 +112,7 @@ def inside(p):
 ```
 ```
 import random
-NUM_SAMPLES=10000000
+NUM_SAMPLES=100000000
 count = sc.parallelize(range(0, NUM_SAMPLES)).filter(inside).count()
 print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
 ```
