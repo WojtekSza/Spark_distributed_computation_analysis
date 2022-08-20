@@ -1,5 +1,5 @@
 # Spark_distributed_computation_analysis
-Repository will show an example of distributed computation with usage of Spark. Servers infrastructure implementd via Azure service.
+Repository will show an example of distributed computation with usage of Spark. Servers infrastructure implemented via Azure service (Ubuntu servers).
 
 First step is to log into Azure CLI.
 ```
